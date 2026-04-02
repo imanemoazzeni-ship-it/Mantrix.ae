@@ -84,6 +84,42 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="shell">
+        <article class="contact-panel contact-form-panel">
+          <p class="eyebrow">Send A Message</p>
+          <h2>Use the form below and your message will be emailed directly to our team.</h2>
+          <p class="lead">
+            Share your inquiry and we will receive it by email at iman@mantrix.ae. You can include your name,
+            email address, and message so we can reply properly.
+          </p>
+          <form class="contact-form" action="https://formsubmit.co/iman@mantrix.ae" method="POST">
+            <input type="hidden" name="_subject" value="New message from mantrix.ae contact form">
+            <input type="hidden" name="_next" value="https://mantrix.ae/thanks.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off">
+
+            <label class="form-field" for="contact-name">
+              <span>Your Name</span>
+              <input id="contact-name" name="name" type="text" placeholder="Enter your full name" required>
+            </label>
+
+            <label class="form-field" for="contact-email">
+              <span>Email Address</span>
+              <input id="contact-email" name="email" type="email" placeholder="Enter your email address" required>
+            </label>
+
+            <label class="form-field" for="contact-message">
+              <span>Your Message</span>
+              <textarea id="contact-message" name="message" rows="7" placeholder="Tell us about your requirement" required></textarea>
+            </label>
+
+            <button class="button" type="submit">Send Message</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
     <section class="section section-dark">
       <div class="shell split-layout">
         <div class="feature-copy feature-copy-light">

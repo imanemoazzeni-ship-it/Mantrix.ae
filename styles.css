@@ -244,6 +244,54 @@ a {
   backdrop-filter: blur(14px);
 }
 
+.contact-form-panel,
+.thank-you-panel {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.55rem;
+  font-weight: 700;
+}
+
+.form-field span {
+  color: var(--ink);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid rgba(180, 102, 40, 0.2);
+  border-color: rgba(180, 102, 40, 0.4);
+}
+
+.contact-honeypot {
+  display: none;
+}
+
 .eyebrow {
   margin-bottom: 1rem;
   text-transform: uppercase;
