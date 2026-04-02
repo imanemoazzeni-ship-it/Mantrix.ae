@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -29,24 +30,41 @@
         <a class="nav-link" href="textiles.html">Textiles</a>
         <a class="nav-link" href="contact.html">Contact Us</a>
       </nav>
-      <a class="button button-outline" href="contact.html">Back To Contact</a>
+      <a class="button button-secondary" href="contact.html">Back To Contact</a>
     </div>
   </header>
 
   <main>
     <section class="page-hero">
-      <div class="shell">
-        <article class="page-hero-copy thank-you-panel">
+      <div class="shell page-hero-grid">
+        <div class="page-hero-copy" data-reveal>
           <p class="eyebrow">Thank You</p>
-          <h1>Your message has been sent.</h1>
+          <h1>Your inquiry is now with our team.</h1>
           <p class="lead">
-            We have received your inquiry and will respond using the email address you provided.
+            Your message has been submitted through the site and routed through the Mantrix contact flow. We will reply
+            using the email address you provided.
           </p>
           <div class="hero-actions">
             <a class="button" href="index.html">Return Home</a>
             <a class="button button-ghost" href="contact.html">Send Another Message</a>
           </div>
-        </article>
+        </div>
+        <div class="mini-stage" data-tilt-stage data-reveal>
+          <div class="mini-stage-inner">
+            <figure class="mini-card mini-card-main">
+              <img src="images/dubai-skyline.jpg" alt="Dubai skyline">
+            </figure>
+            <figure class="mini-card mini-card-accent">
+              <img src="images/colourful-fabric.jpg" alt="Textile fabric">
+            </figure>
+            <div class="mini-pill">Inquiry Sent</div>
+            <article class="scene-note mini-note">
+              <p class="eyebrow">Confirmed</p>
+              <h2>The website now handles contact in a more polished way.</h2>
+              <p>Your message stayed inside the Mantrix experience from submission to confirmation.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -54,6 +72,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
+        <p class="footer-title">Trade Profile</p>
         <p class="footer-copy">Textile trading company based in Dubai, United Arab Emirates.</p>
       </div>
       <div>
@@ -65,7 +84,7 @@
       <div>
         <p class="footer-title">Contact</p>
         <a class="footer-link" href="tel:+97148869750">+971 4 886 9750</a>
-        <a class="footer-link" href="mailto:mantrixllc@gmail.com">mantrixllc@gmail.com</a>
+        <a class="footer-link" href="mailto:iman@mantrix.ae">iman@mantrix.ae</a>
         <p class="footer-copy">106 Al Dana Centre, Dubai</p>
       </div>
     </div>
