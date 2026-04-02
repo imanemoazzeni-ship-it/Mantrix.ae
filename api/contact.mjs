@@ -183,7 +183,7 @@ async function handleRequest(request) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || "iman@mantrix.ae";
+  const toEmail = process.env.CONTACT_TO_EMAIL || "info@mantrix.ae";
   const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@mantrix.ae";
 
   if (!resendApiKey) {
@@ -191,11 +191,11 @@ async function handleRequest(request) {
       request,
       {
         ok: false,
-        error: "The secure email service is not configured yet. Please email iman@mantrix.ae directly for now.",
+        error: "The secure email service is not configured yet. Please email info@mantrix.ae directly for now.",
       },
       503,
       "Email service not ready",
-      "The secure email service is not configured yet. Please email iman@mantrix.ae directly for now."
+      "The secure email service is not configured yet. Please email info@mantrix.ae directly for now."
     );
   }
 
@@ -224,7 +224,7 @@ async function handleRequest(request) {
     const messageText =
       statusCode === 503
         ? "The email service credentials still need to be configured."
-        : "We could not send your message right now. Please email iman@mantrix.ae directly.";
+        : "We could not send your message right now. Please email info@mantrix.ae directly.";
 
     return respond(
       request,

@@ -111,7 +111,7 @@ if (contactForm && formStatus) {
       formStatus.textContent =
         error instanceof Error && error.message
           ? error.message
-          : "We could not send the message right now. Please email iman@mantrix.ae directly.";
+          : "We could not send the message right now. Please email info@mantrix.ae directly.";
     } finally {
       submitButton.disabled = false;
     }
