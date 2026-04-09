@@ -65,35 +65,50 @@ if (contactForm && formStatus) {
 
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const formData = new FormData(contactForm);
+    const submitMode = contactForm.dataset.submitMode || "api";
+    const targetUrl = contactForm.getAttribute("action") || "/api/contact";
 
-    if (String(formData.get("website") || "").trim()) {
+    if (String(formData.get("website") || formData.get("_honey") || "").trim()) {
       contactForm.reset();
       return;
     }
-
-    const payload = {
-      name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      company: String(formData.get("company") || "").trim(),
-      message: String(formData.get("message") || "").trim(),
-      website: String(formData.get("website") || "").trim(),
-    };
 
     submitButton.disabled = true;
     formStatus.className = "form-status";
     formStatus.textContent = "Sending your message securely...";
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      let response;
+      let data = {};
 
-      const data = await response.json().catch(() => ({}));
+      if (submitMode === "formsubmit") {
+        response = await fetch(targetUrl, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+      } else {
+        const payload = {
+          name: String(formData.get("name") || "").trim(),
+          email: String(formData.get("email") || "").trim(),
+          company: String(formData.get("company") || "").trim(),
+          message: String(formData.get("message") || "").trim(),
+          website: String(formData.get("website") || "").trim(),
+        };
+
+        response = await fetch(targetUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      }
+
+      data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
         throw new Error(data.error || "We could not send the message right now.");

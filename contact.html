@@ -94,11 +94,15 @@
             <p class="eyebrow">Send A Message</p>
             <h2>Use the form below and your inquiry will be routed through the website.</h2>
             <p class="lead">
-              Share your name, company, email address, and message. The site now submits this directly to the Vercel
-              contact endpoint rather than showing a third-party form page.
+              Share your name, company, email address, and message. This form now uses a no-account delivery flow so it
+              does not depend on a private API key to work.
             </p>
-            <form class="contact-form" data-contact-form action="/api/contact" method="POST">
-              <input type="text" name="website" class="contact-honeypot" tabindex="-1" autocomplete="off">
+            <form class="contact-form" data-contact-form data-submit-mode="formsubmit" action="https://formsubmit.co/ajax/info@mantrix.ae" method="POST">
+              <input type="hidden" name="_subject" value="New website inquiry from Mantrix.ae">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://mantrix.ae/thanks.html">
+              <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off">
 
               <div class="form-row">
                 <div class="form-field">
