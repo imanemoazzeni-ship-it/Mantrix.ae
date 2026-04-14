@@ -26,9 +26,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress"></div>
 
   <header class="site-header">
     <div class="shell">
@@ -54,15 +56,15 @@
   <main id="main">
     <section class="page-hero">
       <div class="shell page-hero-grid">
-        <div class="page-hero-copy">
-          <p class="eyebrow">About Us</p>
-          <h1>Mantrix General Trading LLC brings a long-running textile trading presence from Dubai.</h1>
-          <p class="lead">
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow reveal reveal-delay-1">About Us</p>
+          <h1 class="reveal reveal-delay-1">Mantrix General Trading LLC brings a long-running textile trading presence from Dubai.</h1>
+          <p class="lead reveal reveal-delay-2">
             Our company has been operating since 2003 with a business model centered on textile trading, steady commercial
             relationships, and clear communication with partners and clients.
           </p>
         </div>
-        <figure class="page-hero-image">
+        <figure class="page-hero-image reveal reveal-delay-2">
           <img src="images/dubai-aerial.jpg" alt="Dubai aerial view" width="4608" height="3456">
         </figure>
       </div>
@@ -70,7 +72,7 @@
 
     <section class="section">
       <div class="shell split-layout">
-        <div>
+        <div class="reveal">
           <p class="eyebrow">Company Story</p>
           <h2>A Dubai-based trading company with a textile-focused identity.</h2>
           <p class="lead">
@@ -83,24 +85,24 @@
           </p>
         </div>
         <div class="grid cards-2">
-          <article class="metric-card">
+          <article class="metric-card reveal reveal-delay-1">
             <span>Established</span>
-            <strong>2003</strong>
+            <strong data-count="2003" data-count-from="1990">2003</strong>
             <p>More than two decades of operating history.</p>
           </article>
-          <article class="metric-card">
+          <article class="metric-card reveal reveal-delay-2">
             <span>Location</span>
             <strong>Dubai</strong>
             <p>Commercially positioned in the UAE.</p>
           </article>
-          <article class="metric-card">
+          <article class="metric-card reveal reveal-delay-3">
             <span>VAT</span>
             <strong>Registered</strong>
             <p>UAE VAT registered business entity.</p>
           </article>
-          <article class="metric-card">
+          <article class="metric-card reveal reveal-delay-4">
             <span>License</span>
-            <strong>549834</strong>
+            <strong data-count="549834" data-count-from="500000">549834</strong>
             <p>Active company credential reference.</p>
           </article>
         </div>
@@ -109,20 +111,20 @@
 
     <section class="section section-dark">
       <div class="shell">
-        <div class="section-heading section-heading-light">
+        <div class="section-heading section-heading-light reveal">
           <p class="eyebrow">How We Work</p>
           <h2>Built around trust, clarity, and practical trading support.</h2>
         </div>
         <div class="grid cards-3">
-          <article class="info-card info-card-dark">
+          <article class="info-card info-card-dark reveal reveal-delay-1">
             <h3>Business Clarity</h3>
             <p>We value straightforward communication and a direct trading process that keeps relationships efficient.</p>
           </article>
-          <article class="info-card info-card-dark">
+          <article class="info-card info-card-dark reveal reveal-delay-2">
             <h3>Commercial Discipline</h3>
             <p>Operating with recognized credentials and a practical mindset for business continuity.</p>
           </article>
-          <article class="info-card info-card-dark">
+          <article class="info-card info-card-dark reveal reveal-delay-3">
             <h3>Textile Focus</h3>
             <p>Our company identity remains centered on textile trading and associated business support.</p>
           </article>
@@ -132,10 +134,10 @@
 
     <section class="section">
       <div class="shell feature-layout">
-        <figure class="feature-image">
+        <figure class="feature-image reveal">
           <img src="images/dubai-skyline.jpg" alt="Dubai skyline view" width="2268" height="4032" loading="lazy">
         </figure>
-        <div class="feature-copy">
+        <div class="feature-copy reveal reveal-delay-1">
           <p class="eyebrow">Dubai Presence</p>
           <h2>Working from a city known for movement, trade, and business access.</h2>
           <p class="lead">
@@ -143,11 +145,11 @@
             company supporting textile-related activity from a recognized regional business hub.
           </p>
           <div class="grid cards-2">
-            <article class="info-card">
+            <article class="info-card reveal reveal-delay-2">
               <h3>TRN</h3>
               <p>100232707800003</p>
             </article>
-            <article class="info-card">
+            <article class="info-card reveal reveal-delay-3">
               <h3>Office Address</h3>
               <p>106 Al Dana Centre, Dubai</p>
             </article>
