@@ -116,6 +116,58 @@
     });
   }
 
+  /* ---------- 3D tilt on swatches and bento cells ---------- */
+  if (!reducedMotion && window.matchMedia("(hover: hover)").matches) {
+    const tiltEls = document.querySelectorAll(".swatch, .bento-cell");
+    tiltEls.forEach(function (el) {
+      el.addEventListener("mousemove", function (e) {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rotateY = (x - 0.5) * 14;
+        const rotateX = (0.5 - y) * 14;
+        if (el.classList.contains("swatch")) {
+          el.style.transform =
+            "perspective(1200px) rotateX(" + rotateX + "deg) rotateY(" +
+            rotateY + "deg) translateY(-10px) scale(1.02)";
+        } else {
+          el.style.transform =
+            "perspective(1200px) rotateX(" + (rotateX * 0.5) + "deg) rotateY(" +
+            (rotateY * 0.5) + "deg) translateY(-8px)";
+        }
+      });
+      el.addEventListener("mouseleave", function () {
+        el.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------- Marquee duplicate for seamless loop ---------- */
+  const marqueeTracks = document.querySelectorAll(".marquee-track");
+  marqueeTracks.forEach(function (track) {
+    const items = track.innerHTML;
+    track.innerHTML = items + items;
+  });
+
+  /* ---------- Parallax on [data-parallax] ---------- */
+  if (!reducedMotion) {
+    const parallaxEls = document.querySelectorAll("[data-parallax]");
+    if (parallaxEls.length) {
+      function updateParallax() {
+        parallaxEls.forEach(function (el) {
+          const rect = el.getBoundingClientRect();
+          const speed = parseFloat(el.dataset.parallax) || 0.2;
+          const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+          el.style.transform = "translate3d(0, " + offset + "px, 0)";
+        });
+      }
+      window.addEventListener("scroll", function () {
+        window.requestAnimationFrame(updateParallax);
+      }, { passive: true });
+      updateParallax();
+    }
+  }
+
   /* ---------- Magnetic subtle hover on primary buttons ---------- */
   if (!reducedMotion && window.matchMedia("(hover: hover)").matches) {
     const magneticEls = document.querySelectorAll(".button");
