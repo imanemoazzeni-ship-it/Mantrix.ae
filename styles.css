@@ -561,8 +561,8 @@ h3 {
 
 .section-dark {
   background:
-    radial-gradient(circle at top left, rgba(224, 176, 124, 0.15), transparent 22%),
-    linear-gradient(180deg, #102133 0%, #172b41 100%);
+    radial-gradient(circle at top left, rgba(80, 160, 220, 0.12), transparent 22%),
+    linear-gradient(180deg, #0b1a2e 0%, #122a48 100%);
   color: var(--white);
 }
 
