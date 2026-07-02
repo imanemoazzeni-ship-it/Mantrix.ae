@@ -43,14 +43,26 @@ html {
 /* ---------- Reveal-on-scroll ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
-  will-change: opacity, transform;
+  filter: blur(8px);
+  transform: translate3d(0, 34px, 0) scale(0.985);
+  transition:
+    opacity 0.95s var(--ease-out-expo),
+    filter 0.95s var(--ease-out-expo),
+    transform 0.95s var(--ease-out-expo);
+  will-change: opacity, filter, transform;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+h1.reveal.is-visible,
+h2.reveal.is-visible,
+.reveal.is-visible > h1,
+.reveal.is-visible > h2 {
+  animation: textLift 0.9s var(--ease-out-expo) both;
 }
 
 .reveal-delay-1 { transition-delay: 0.08s; }
@@ -70,12 +82,67 @@ body::before {
   opacity: 0.05;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   mix-blend-mode: overlay;
+  animation: grainDrift 18s steps(6, end) infinite;
 }
 
 /* ---------- Body page load fade ---------- */
 @keyframes bodyFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes textLift {
+  from {
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes grainDrift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-2%, 1%, 0); }
+  50% { transform: translate3d(1%, -2%, 0); }
+  75% { transform: translate3d(2%, 2%, 0); }
+}
+
+@keyframes navDrop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes navSheen {
+  0%, 42% { transform: translateX(-120%); }
+  64%, 100% { transform: translateX(120%); }
+}
+
+@keyframes imageWipe {
+  0% { transform: translateX(-110%) skewX(-8deg); }
+  52% { transform: translateX(0%) skewX(-8deg); }
+  100% { transform: translateX(112%) skewX(-8deg); }
+}
+
+@keyframes rippleOut {
+  from {
+    opacity: 0.38;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(-1deg); }
 }
 
 body {
@@ -151,6 +218,8 @@ a {
 }
 
 .nav-shell {
+  position: relative;
+  overflow: hidden;
   transition: background 0.35s, box-shadow 0.35s, transform 0.35s;
 }
 
@@ -168,6 +237,30 @@ a {
   width: 100%;
 }
 
+.nav-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.42) 48%, transparent 58%);
+  transform: translateX(-120%);
+  animation: navSheen 7.5s var(--ease-out-expo) infinite;
+  pointer-events: none;
+}
+
+.nav-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.js .nav-shell {
+  opacity: 0;
+  transform: translate3d(0, -18px, 0) scale(0.985);
+}
+
+body.is-ready .nav-shell {
+  animation: navDrop 0.9s var(--ease-out-expo) both;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -179,6 +272,7 @@ a {
   height: 3.15rem;
   border-radius: 1rem;
   box-shadow: 0 14px 28px rgba(24, 80, 140, 0.2);
+  animation: logoFloat 6s ease-in-out infinite;
 }
 
 .brand-name,
@@ -287,6 +381,16 @@ a {
   box-shadow: 0 20px 40px rgba(45, 122, 179, 0.35);
 }
 
+.button-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  transform: scale(0);
+  animation: rippleOut 0.72s var(--ease-out-expo) forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .button-outline,
 .button-ghost {
   background: transparent;
@@ -392,7 +496,9 @@ a {
 .page-hero-image,
 .feature-image,
 .gallery-card {
+  position: relative;
   overflow: hidden;
+  isolation: isolate;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.32);
@@ -410,14 +516,36 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: translate3d(0, var(--media-y, 0px), 0) scale(1.04);
   transition: transform 1.4s var(--ease-out-expo), filter 0.6s;
+  will-change: transform;
 }
 
 .photo-card:hover img,
 .page-hero-image:hover img,
 .feature-image:hover img,
 .gallery-card:hover img {
-  transform: scale(1.06);
+  transform: translate3d(0, var(--media-y, 0px), 0) scale(1.1);
+}
+
+.photo-card.reveal::before,
+.page-hero-image.reveal::before,
+.feature-image.reveal::before,
+.gallery-card.reveal::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 3;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.82) 42%, rgba(45, 122, 179, 0.22) 54%, transparent 68%);
+  transform: translateX(-110%) skewX(-8deg);
+  pointer-events: none;
+}
+
+.photo-card.reveal.is-visible::before,
+.page-hero-image.reveal.is-visible::before,
+.feature-image.reveal.is-visible::before,
+.gallery-card.reveal.is-visible::before {
+  animation: imageWipe 1.05s var(--ease-out-expo) 0.12s both;
 }
 
 .gallery-card {
@@ -447,7 +575,47 @@ a {
   border-radius: var(--radius-lg);
   background: var(--surface);
   backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
   transition: transform 0.55s var(--ease-out-expo), box-shadow 0.55s var(--ease-out-expo), border-color 0.4s;
+}
+
+.detail-card::before,
+.info-card::before,
+.metric-card::before,
+.contact-panel::before,
+.cta-panel::before,
+.garment-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(360px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 255, 255, 0.42), transparent 42%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease-out-expo);
+}
+
+.info-card-dark::before {
+  background: radial-gradient(360px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(160, 210, 255, 0.18), transparent 42%);
+}
+
+.detail-card:hover::before,
+.info-card:hover::before,
+.metric-card:hover::before,
+.contact-panel:hover::before,
+.cta-panel:hover::before,
+.garment-row:hover::before {
+  opacity: 1;
+}
+
+.detail-card > *,
+.info-card > *,
+.metric-card > *,
+.contact-panel > *,
+.cta-panel > *,
+.garment-row > * {
+  position: relative;
+  z-index: 1;
 }
 
 .info-card:hover,
@@ -1266,6 +1434,8 @@ h3 {
 }
 
 .garment-row {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 60px 1fr auto;
   gap: 1.2rem;

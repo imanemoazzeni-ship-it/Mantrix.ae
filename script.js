@@ -3,10 +3,20 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hasIO = "IntersectionObserver" in window;
+  document.documentElement.classList.add("js");
+
+  window.requestAnimationFrame(function () {
+    document.body.classList.add("is-ready");
+  });
 
   /* ---------- Scroll progress + sticky-header shadow ---------- */
   const progressBar = document.querySelector(".scroll-progress");
   const header = document.querySelector(".site-header");
+  const motionMediaEls = reducedMotion
+    ? []
+    : document.querySelectorAll(
+        ".photo-card img, .page-hero-image img, .feature-image img, .gallery-card img"
+      );
   let ticking = false;
 
   function updateScrollState() {
@@ -26,6 +36,16 @@
       } else {
         header.classList.remove("is-scrolled");
       }
+    }
+
+    if (motionMediaEls.length) {
+      motionMediaEls.forEach(function (img) {
+        const rect = img.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const distance = (center - window.innerHeight / 2) / window.innerHeight;
+        const offset = Math.max(Math.min(distance * -22, 18), -18);
+        img.style.setProperty("--media-y", offset.toFixed(2) + "px");
+      });
     }
 
     ticking = false;
@@ -181,6 +201,42 @@
       });
       btn.addEventListener("mouseleave", function () {
         btn.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------- Pointer spotlight on cards ---------- */
+  if (!reducedMotion && window.matchMedia("(hover: hover)").matches) {
+    const spotlightEls = document.querySelectorAll(
+      ".info-card, .metric-card, .contact-panel, .detail-card, .cta-panel, .garment-row"
+    );
+    spotlightEls.forEach(function (el) {
+      el.addEventListener("pointermove", function (event) {
+        const rect = el.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        el.style.setProperty("--spotlight-x", x.toFixed(1) + "%");
+        el.style.setProperty("--spotlight-y", y.toFixed(1) + "%");
+      });
+    });
+  }
+
+  /* ---------- Button ripple for tactile clicks ---------- */
+  if (!reducedMotion) {
+    document.querySelectorAll(".button").forEach(function (btn) {
+      btn.addEventListener("click", function (event) {
+        const rect = btn.getBoundingClientRect();
+        const ripple = document.createElement("span");
+        const size = Math.max(rect.width, rect.height);
+        ripple.className = "button-ripple";
+        ripple.style.width = size + "px";
+        ripple.style.height = size + "px";
+        ripple.style.left = event.clientX - rect.left - size / 2 + "px";
+        ripple.style.top = event.clientY - rect.top - size / 2 + "px";
+        btn.appendChild(ripple);
+        window.setTimeout(function () {
+          ripple.remove();
+        }, 720);
       });
     });
   }
