@@ -24,9 +24,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260907">
+  <script src="script.js?v=20260907" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -42,13 +42,14 @@
             <p class="brand-subtitle">General Trading LLC</p>
           </div>
         </a>
-        <nav class="nav-links" aria-label="Primary navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
           <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link is-active" href="about.html">About Us</a>
+          <a class="nav-link is-active" aria-current="page" href="about.html">Our Company</a>
           <a class="nav-link" href="textiles.html">Textiles</a>
-          <a class="nav-link" href="contact.html">Contact Us</a>
+          <a class="nav-link" href="contact.html">Contact</a>
         </nav>
-        <a class="button button-outline" href="contact.html">Speak With Us</a>
+        <a class="button nav-cta" href="contact.html">Start a Conversation</a>
       </div>
     </div>
   </header>
@@ -58,14 +59,13 @@
       <div class="shell page-hero-grid">
         <div class="page-hero-copy reveal">
           <p class="eyebrow reveal reveal-delay-1">About Us</p>
-          <h1 class="reveal reveal-delay-1">Mantrix General Trading LLC brings a long-running textile trading presence from Dubai.</h1>
+          <h1 class="reveal reveal-delay-1">Two decades of trade.<br><em>A personal approach.</em></h1>
           <p class="lead reveal reveal-delay-2">
-            Our company has been operating since 2003 with a business model centered on textile trading, steady commercial
-            relationships, and clear communication with partners and clients.
+            Since 2003, Mantrix General Trading LLC has connected textile buyers with sourcing and supply support from Dubai. We build lasting business relationships through clear communication and attention to detail.
           </p>
         </div>
         <figure class="page-hero-image reveal reveal-delay-2">
-          <img src="images/dubai-aerial.jpg" alt="Dubai aerial view" width="4608" height="3456">
+          <img src="images/dubai-aerial.webp" alt="Dubai aerial view" width="4608" height="3456">
         </figure>
       </div>
     </section>
@@ -80,14 +80,13 @@
             needs with sourcing coordination, practical trade support, and a dependable commercial approach.
           </p>
           <p class="lead">
-            We present ourselves as a straightforward trading company: established, credentialed, and positioned in a city
-            known for business connectivity and international commerce.
+            From our office in Al Dana Centre, we work directly with buyers to understand their materials, specifications, and commercial requirements.
           </p>
         </div>
         <div class="grid cards-2">
           <article class="metric-card reveal reveal-delay-1">
             <span>Established</span>
-            <strong data-count="2003" data-count-from="1990">2003</strong>
+            <strong>2003</strong>
             <p>More than two decades of operating history.</p>
           </article>
           <article class="metric-card reveal reveal-delay-2">
@@ -102,7 +101,7 @@
           </article>
           <article class="metric-card reveal reveal-delay-4">
             <span>License</span>
-            <strong data-count="549834" data-count-from="500000">549834</strong>
+            <strong>549834</strong>
             <p>Active company credential reference.</p>
           </article>
         </div>
@@ -158,7 +157,7 @@
     <section class="section">
       <div class="shell feature-layout">
         <figure class="feature-image reveal">
-          <img src="images/dubai-skyline.jpg" alt="Dubai skyline view" width="2268" height="4032" loading="lazy">
+          <img src="images/dubai-skyline.webp" alt="Dubai skyline view" width="2268" height="4032" loading="lazy">
         </figure>
         <div class="feature-copy reveal reveal-delay-1">
           <p class="eyebrow">Dubai Presence</p>
@@ -185,7 +184,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <p class="footer-title">Mantrix General Trading LLC</p>
+        <p class="footer-title">Textiles. Trade. Connection.</p>
         <p class="footer-copy">Textile trading company based in Dubai, United Arab Emirates.</p>
       </div>
       <div>
@@ -219,5 +218,6 @@
       </p>
     </div>
   </footer>
+  <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
 </body>
 </html>

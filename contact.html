@@ -24,9 +24,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260907">
+  <script src="script.js?v=20260907" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -42,13 +42,14 @@
             <p class="brand-subtitle">General Trading LLC</p>
           </div>
         </a>
-        <nav class="nav-links" aria-label="Primary navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
           <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="about.html">Our Company</a>
           <a class="nav-link" href="textiles.html">Textiles</a>
-          <a class="nav-link is-active" href="contact.html">Contact Us</a>
+          <a class="nav-link is-active" aria-current="page" href="contact.html">Contact</a>
         </nav>
-        <a class="button button-outline" href="contact.html">Speak With Us</a>
+        <a class="button nav-cta" href="contact.html">Start a Conversation</a>
       </div>
     </div>
   </header>
@@ -58,7 +59,7 @@
       <div class="shell page-hero-grid">
         <div class="page-hero-copy reveal">
           <p class="eyebrow reveal reveal-delay-1">Contact Us</p>
-          <h1 class="reveal reveal-delay-1">Get in touch with Mantrix General Trading LLC in Dubai.</h1>
+          <h1 class="reveal reveal-delay-1">Your next project<br><em>starts here.</em></h1>
           <p class="lead reveal reveal-delay-2">
             Reach out for textile trading inquiries, sourcing discussions, and business partnership conversations with
             Mantrix General Trading LLC.
@@ -70,7 +71,7 @@
           </div>
         </div>
         <figure class="page-hero-image reveal reveal-delay-2">
-          <img src="images/dubai-skyline.jpg" alt="Dubai skyline at sunset" width="2268" height="4032">
+          <img src="images/dubai-skyline.webp" alt="Dubai skyline at sunset" width="2268" height="4032">
         </figure>
       </div>
     </section>
@@ -101,7 +102,7 @@
 
         <article class="contact-panel reveal reveal-delay-1">
           <p class="eyebrow">Send an Enquiry</p>
-          <h2>Write to us directly</h2>
+          <h2>Tell us what you need</h2>
           <form
             class="contact-form"
             action="mailto:info@mantrix.ae"
@@ -110,15 +111,15 @@
           >
             <label>
               Your Name
-              <input type="text" name="name" placeholder="e.g. Ahmed Al Rashidi" required>
+              <input type="text" name="name" autocomplete="name" placeholder="e.g. Ahmed Al Rashidi" required>
             </label>
             <label>
               Email Address
-              <input type="email" name="email" placeholder="you@company.com" required>
+              <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required>
             </label>
             <label>
               Company
-              <input type="text" name="company" placeholder="Your company name">
+              <input type="text" name="company" autocomplete="organization" placeholder="Your company name">
             </label>
             <label>
               Subject
@@ -134,7 +135,8 @@
               Message
               <textarea name="message" placeholder="Describe your textile trading requirement..." required></textarea>
             </label>
-            <button class="button" type="submit">Send Enquiry</button>
+            <p class="form-note">This form opens your email app with your enquiry addressed to info@mantrix.ae. Review the message and press send in your email app.</p>
+            <button class="button" type="submit">Open Email Enquiry</button>
           </form>
         </article>
       </div>
@@ -222,7 +224,7 @@
           </div>
         </div>
         <figure class="feature-image reveal reveal-delay-1">
-          <img src="images/dubai-aerial.jpg" alt="Dubai city aerial photograph" width="4608" height="3456" loading="lazy">
+          <img src="images/dubai-aerial.webp" alt="Dubai city aerial photograph" width="4608" height="3456" loading="lazy">
         </figure>
       </div>
     </section>
@@ -231,7 +233,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <p class="footer-title">Mantrix General Trading LLC</p>
+        <p class="footer-title">Textiles. Trade. Connection.</p>
         <p class="footer-copy">Textile trading company based in Dubai, United Arab Emirates.</p>
       </div>
       <div>
@@ -265,5 +267,6 @@
       </p>
     </div>
   </footer>
+  <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
 </body>
 </html>

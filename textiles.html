@@ -24,9 +24,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260907">
+  <script src="script.js?v=20260907" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -42,13 +42,14 @@
             <p class="brand-subtitle">General Trading LLC</p>
           </div>
         </a>
-        <nav class="nav-links" aria-label="Primary navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
           <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About Us</a>
-          <a class="nav-link is-active" href="textiles.html">Textiles</a>
-          <a class="nav-link" href="contact.html">Contact Us</a>
+          <a class="nav-link" href="about.html">Our Company</a>
+          <a class="nav-link is-active" aria-current="page" href="textiles.html">Textiles</a>
+          <a class="nav-link" href="contact.html">Contact</a>
         </nav>
-        <a class="button button-outline" href="contact.html">Speak With Us</a>
+        <a class="button nav-cta" href="contact.html">Start a Conversation</a>
       </div>
     </div>
   </header>
@@ -61,11 +62,10 @@
         <div class="page-hero-copy reveal">
           <span class="hero-badge reveal reveal-delay-1">Textile Trading · Since 2003</span>
           <p class="ribbon-heading reveal reveal-delay-1">Textile Focus</p>
-          <h1 class="reveal reveal-delay-1">Fabrics, weaves, and ready-made garments — sourced from the world, traded from Dubai.</h1>
+          <h1 class="reveal reveal-delay-1">Made of possibilities.<br><em>Sourced from Dubai.</em></h1>
           <p class="lead reveal reveal-delay-2">
-            Mantrix General Trading LLC connects mills, manufacturers, wholesalers, and brand owners across the textile
-            supply chain. From raw rolls to finished apparel, we coordinate sourcing, sampling, and supply with a focus on
-            speed, accuracy, and long-term commercial relationships.
+            From cotton and linen to technical fabrics and finished apparel, we coordinate sourcing, sampling,
+            and supply for textile buyers, brands, and wholesalers.
           </p>
           <div class="hero-actions reveal reveal-delay-3">
             <a class="button" href="#fabrics">Explore Fabrics</a>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <figure class="page-hero-image reveal reveal-delay-2">
-          <img src="images/colourful-fabric.jpg" alt="Colourful textiles" width="1944" height="1296">
+          <img src="images/colourful-fabric.webp" alt="Colourful textiles" width="1944" height="1296">
         </figure>
       </div>
     </section>
@@ -102,28 +102,28 @@
           <h2>A working catalogue of materials we trade and source on request.</h2>
           <p class="lead" style="max-width:680px;margin-top:0.8rem;">
             Each fabric below represents a material category Mantrix actively quotes for buyers across the GCC, South Asia,
-            Africa, and Europe. Hover any swatch for closer detail.
+            Africa, and Europe. Explore the textures below and share your specifications with our team.
           </p>
         </div>
         <div class="swatch-grid" style="margin-bottom:3rem;">
-          <article class="swatch reveal reveal-delay-1">
-            <img src="images/cotton-blue.jpg" alt="Close-up of woven blue cotton fabric" loading="lazy" width="1280" height="853">
+          <article class="swatch reveal reveal-delay-1" id="cotton">
+            <img src="images/cotton-blue.webp" alt="Close-up of woven blue cotton fabric" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">100% Cotton</span>
               <h3>Cotton Weaves</h3>
               <p>Plain, twill, poplin, and oxford weaves for shirting, uniforms, bedding, and casual wear.</p>
             </div>
           </article>
-          <article class="swatch reveal reveal-delay-2">
-            <img src="images/silk-pink.jpg" alt="Pink woven cotton silk fabric texture" loading="lazy" width="1280" height="853">
+          <article class="swatch reveal reveal-delay-2" id="silk">
+            <img src="images/silk-pink.webp" alt="Pink woven cotton silk fabric texture" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">Silk Blend</span>
               <h3>Silk &amp; Cotton-Silk</h3>
               <p>Lustrous, lightweight blends suited to formalwear, scarves, linings, and luxury packaging.</p>
             </div>
           </article>
-          <article class="swatch reveal reveal-delay-3">
-            <img src="images/linen-natural.jpg" alt="Natural linen fabric texture close-up" loading="lazy" width="1280" height="853">
+          <article class="swatch reveal reveal-delay-3" id="linen">
+            <img src="images/linen-natural.webp" alt="Natural linen fabric texture close-up" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">Pure Linen</span>
               <h3>Linen &amp; Hemp</h3>
@@ -131,7 +131,7 @@
             </div>
           </article>
           <article class="swatch reveal reveal-delay-1">
-            <img src="images/denim-blue.jpg" alt="Indigo denim fabric macro shot" loading="lazy" width="1280" height="853">
+            <img src="images/denim-blue.webp" alt="Indigo denim fabric macro shot" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">Indigo Denim</span>
               <h3>Denim &amp; Twill</h3>
@@ -139,7 +139,7 @@
             </div>
           </article>
           <article class="swatch reveal reveal-delay-2">
-            <img src="images/fabric-red.jpg" alt="Rich red fabric texture close up" loading="lazy" width="1280" height="853">
+            <img src="images/fabric-red.webp" alt="Rich red fabric texture close up" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">Solid Dyed</span>
               <h3>Solid &amp; Piece-Dyed</h3>
@@ -147,7 +147,7 @@
             </div>
           </article>
           <article class="swatch reveal reveal-delay-3">
-            <img src="images/mesh-fabric.jpg" alt="Mesh fabric weave close up" loading="lazy" width="1280" height="853">
+            <img src="images/mesh-fabric.webp" alt="Mesh fabric weave close up" loading="lazy" width="1280" height="853">
             <div class="swatch-info">
               <span class="swatch-tag">Performance</span>
               <h3>Mesh &amp; Technical</h3>
@@ -155,7 +155,7 @@
             </div>
           </article>
           <article class="swatch reveal reveal-delay-1">
-            <img src="images/silk-panels.jpg" alt="Padded silk panels with traditional pattern" loading="lazy" width="1280" height="960">
+            <img src="images/cloth-texture.webp" alt="Close-up of blue and ivory patterned woven cloth" loading="lazy" width="1200" height="900">
             <div class="swatch-info">
               <span class="swatch-tag">Decorative</span>
               <h3>Jacquard &amp; Brocade</h3>
@@ -163,7 +163,7 @@
             </div>
           </article>
           <article class="swatch reveal reveal-delay-2">
-            <img src="images/cloth-texture.jpg" alt="Stacked colourful cloth texture" loading="lazy" width="1280" height="960">
+            <img src="images/colourful-fabric.webp" alt="A stack of colourful fabric cuts" loading="lazy" width="1200" height="800">
             <div class="swatch-info">
               <span class="swatch-tag">Mixed Lots</span>
               <h3>Stocklots &amp; Surplus</h3>
@@ -255,7 +255,7 @@
             </article>
           </div>
           <figure class="garment-visual reveal reveal-delay-1">
-            <img src="images/garment-factory.jpg" alt="Garment factory floor with workers and machines" loading="lazy" width="1024" height="768">
+            <img src="images/garment-factory.webp" alt="Garment factory floor with workers and machines" loading="lazy" width="1024" height="768">
             <figcaption class="garment-visual-caption">
               <span>Factory Floor</span>
               <h3>Production-grade supply at scale.</h3>
@@ -299,7 +299,7 @@
     <section class="section">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="ribbon-heading">Buyer Details</p>
+          <p class="ribbon-heading" id="buyer-details">Buyer Details</p>
           <h2>Practical sourcing information for faster, clearer textile decisions.</h2>
           <p class="lead" style="max-width:720px;margin-top:0.8rem;">
             Buyers get the quickest response when requirements are shared with material details, quantity targets, and
@@ -363,7 +363,7 @@
       <div class="shell">
         <div class="section-heading reveal">
           <p class="ribbon-heading">Trading Support</p>
-          <h2>Core textile services presented more clearly for partners and buyers.</h2>
+          <h2>Sourcing support for buyers, brands, and wholesalers.</h2>
         </div>
         <div class="grid cards-3">
           <article class="info-card reveal reveal-delay-1">
@@ -420,7 +420,7 @@
     <section class="section section-dark">
       <div class="shell feature-layout">
         <figure class="feature-image reveal">
-          <img src="images/fabric-merchant.jpg" alt="Fabric merchant illustration" width="1024" height="1021" loading="lazy">
+          <img src="images/mesh-fabric.webp" alt="Close-up of the weave in technical mesh fabric" width="1200" height="800" loading="lazy">
         </figure>
         <div class="feature-copy feature-copy-light reveal reveal-delay-1">
           <p class="eyebrow">Market Perspective</p>
@@ -451,24 +451,24 @@
         </div>
         <div class="grid gallery-grid">
           <figure class="gallery-card reveal reveal-delay-1">
-            <img src="images/cloth-texture.jpg" alt="Close-up fabric texture" width="1280" height="960" loading="lazy">
+            <img src="images/cloth-texture.webp" alt="Close-up fabric texture" width="1280" height="960" loading="lazy">
             <figcaption>
               <strong>Material Detail</strong>
               <span>Highlighting texture, quality, and a closer connection to textile materials.</span>
             </figcaption>
           </figure>
           <figure class="gallery-card reveal reveal-delay-2">
-            <img src="images/colourful-fabric.jpg" alt="Stacked colourful fabrics" width="1944" height="1296" loading="lazy">
+            <img src="images/colourful-fabric.webp" alt="Stacked colourful fabrics" width="1944" height="1296" loading="lazy">
             <figcaption>
               <strong>Textile Identity</strong>
               <span>Reflecting the product character behind textile-focused trade activity.</span>
             </figcaption>
           </figure>
           <figure class="gallery-card reveal reveal-delay-3">
-            <img src="images/fabric-merchant.jpg" alt="Textile market scene" width="1024" height="1021" loading="lazy">
+            <img src="images/denim-blue.webp" alt="Close-up of an indigo denim weave" width="1200" height="800" loading="lazy">
             <figcaption>
-              <strong>Trade Heritage</strong>
-              <span>Reflecting the commercial nature of textile exchange and sourcing.</span>
+              <strong>Denim &amp; Twill</strong>
+              <span>Distinctive woven structure for casual apparel, uniforms, and workwear.</span>
             </figcaption>
           </figure>
         </div>
@@ -492,7 +492,7 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <p class="footer-title">Mantrix General Trading LLC</p>
+        <p class="footer-title">Textiles. Trade. Connection.</p>
         <p class="footer-copy">Textile trading company based in Dubai, United Arab Emirates.</p>
       </div>
       <div>
@@ -526,5 +526,6 @@
       </p>
     </div>
   </footer>
+  <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
 </body>
 </html>

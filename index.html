@@ -24,9 +24,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260907">
+  <script src="script.js?v=20260907" defer></script>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -51,350 +51,204 @@
   }
   </script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="scroll-progress"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
-    <div class="shell">
-      <div class="nav-shell">
-        <a class="brand" href="index.html">
-          <img class="brand-logo" src="logo.svg" alt="Mantrix logo" width="50" height="50">
-          <div>
-            <p class="brand-name">Mantrix</p>
-            <p class="brand-subtitle">General Trading LLC</p>
-          </div>
-        </a>
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a class="nav-link is-active" href="index.html">Home</a>
-          <a class="nav-link" href="about.html">About Us</a>
-          <a class="nav-link" href="textiles.html">Textiles</a>
-          <a class="nav-link" href="contact.html">Contact Us</a>
-        </nav>
-        <a class="button button-outline" href="contact.html">Speak With Us</a>
-      </div>
+    <div class="shell nav-shell">
+      <a class="brand" href="index.html" aria-label="Mantrix home">
+        <img class="brand-logo" src="logo.svg" alt="" width="50" height="50">
+        <div>
+          <p class="brand-name">Mantrix</p>
+          <p class="brand-subtitle">General Trading LLC</p>
+        </div>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span>Menu</span><span class="menu-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link is-active" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="about.html">Our Company</a>
+        <a class="nav-link" href="textiles.html">Textiles</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <a class="button nav-cta" href="contact.html">Start a Conversation</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero-home" style="position:relative;overflow:hidden;">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="shell hero-grid" style="position:relative;z-index:1;">
-        <div class="hero-copy reveal">
-          <span class="hero-badge reveal reveal-delay-1">Operating Since 2003 · Dubai</span>
-          <p class="eyebrow reveal reveal-delay-1">Dubai, United Arab Emirates</p>
-          <h1 class="reveal reveal-delay-1">Textile trading backed by Dubai presence and long-term business credibility.</h1>
-          <p class="lead reveal reveal-delay-2">
-            Mantrix General Trading LLC has been operating since 2003, supporting textile trading through dependable
-            sourcing, supply coordination, and responsive business communication.
-          </p>
-          <div class="hero-actions reveal reveal-delay-3">
-            <a class="button" href="about.html">Discover Mantrix</a>
-            <a class="button button-ghost" href="textiles.html">Explore Textiles</a>
-          </div>
-          <div class="hero-points reveal reveal-delay-4">
-            <span>Operating Since 2003</span>
-            <span>UAE VAT Registered</span>
-            <span>Dubai-Based Trade Company</span>
-          </div>
+    <section class="landing-hero" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 700px)" srcset="images/ivory-drape-mobile.webp">
+          <img src="images/ivory-drape.webp" alt="" width="1536" height="1024" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="shell hero-content">
+        <p class="eyebrow hero-kicker"><span class="status-dot" aria-hidden="true"></span> Dubai roots. A world of textiles.</p>
+        <h1 id="hero-title" class="hero-title">
+          <span class="line-mask"><span>Exceptional textiles.</span></span>
+          <span class="line-mask"><span>Lasting</span></span>
+          <span class="line-mask"><em>partnerships.</em></span>
+        </h1>
+        <p class="hero-description">Connecting your vision with the right fabrics.<br>Textile sourcing and trade coordination from Dubai, since 2003.</p>
+        <div class="hero-actions hero-enter">
+          <a class="button" href="textiles.html">Explore Our Textiles</a>
+          <a class="text-link" href="about.html">The Mantrix Story <span aria-hidden="true">&#8599;</span></a>
         </div>
-
-        <div class="hero-visual reveal reveal-delay-2">
-          <figure class="photo-card photo-tall">
-            <img src="images/dubai-skyline.jpg" alt="Dubai skyline" width="2268" height="4032">
-          </figure>
-          <div class="visual-stack">
-            <figure class="photo-card photo-short">
-              <img src="images/colourful-fabric.jpg" alt="Colourful textile fabric" width="1944" height="1296" loading="lazy">
-            </figure>
-            <article class="detail-card">
-              <p class="eyebrow">Company Snapshot</p>
-              <h2>Built for practical trade support.</h2>
-              <p>
-                From Dubai, Mantrix serves textile-focused commercial needs with clear communication, strong credentials,
-                and a straightforward trading approach.
-              </p>
-            </article>
-          </div>
-        </div>
+      </div>
+      <div class="shell hero-foot">
+        <a class="scroll-cue" href="#introduction"><span class="scroll-cue-line" aria-hidden="true"></span>Scroll to discover</a>
+        <span>Est. 2003 <span class="foot-divider">/</span> Dubai, UAE</span>
+        <span class="hero-note">From the first thread.<br>To the finished possibility.</span>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Business Profile</p>
-          <h2>A business profile built for confident textile trading.</h2>
-        </div>
-        <div class="grid cards-3">
-          <article class="info-card reveal reveal-delay-1">
-            <h3>Established Operation</h3>
-            <p>Operating since 2003 with a steady focus on textile trading and commercial reliability.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-2">
-            <h3>Commercial Credentials</h3>
-            <p>UAE VAT registered with TRN 100232707800003 and license number 549834.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-3">
-            <h3>Dubai Positioning</h3>
-            <p>Based in Dubai to support responsive trade coordination and business connectivity.</p>
-          </article>
-        </div>
+    <section class="credentials-band" aria-label="Company credentials">
+      <div class="shell credentials-inner">
+        <span><span class="small-star" aria-hidden="true">&#10033;</span> Operating since 2003</span>
+        <span>UAE VAT registered</span>
+        <span>Textiles &amp; ready-made garments</span>
+        <span>Dubai-based coordination</span>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Buyer Confidence</p>
-          <h2>Important trade details buyers can review before starting a conversation.</h2>
-        </div>
-        <div class="grid cards-3">
-          <article class="info-card reveal reveal-delay-1">
-            <h3>What We Quote</h3>
-            <p>Fabric categories, ready-made garments, uniforms, home textiles, stocklots, and sourcing requests with clear specifications.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-2">
-            <h3>How Buyers Brief Us</h3>
-            <p>Share composition, GSM, width, colour, quantity, target market, delivery timeline, and product references for faster response.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-3">
-            <h3>Verification Details</h3>
-            <p>Operating since 2003, UAE VAT registered, TRN 100232707800003, License No. 549834, and Dubai office contact details.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item">Cotton</span>
-        <span class="marquee-item">Silk</span>
-        <span class="marquee-item">Linen</span>
-        <span class="marquee-item">Denim</span>
-        <span class="marquee-item">Wool</span>
-        <span class="marquee-item">Polyester</span>
-        <span class="marquee-item">Viscose</span>
-        <span class="marquee-item">Chiffon</span>
-        <span class="marquee-item">Satin</span>
-        <span class="marquee-item">Velvet</span>
-        <span class="marquee-item">Jacquard</span>
-        <span class="marquee-item">Knitwear</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="ribbon-heading">Material Library</p>
-          <h2>A working preview of the fabrics and finished garments we trade.</h2>
-          <p class="lead" style="max-width:680px;margin-top:0.8rem;">
-            From woven cotton and linen to silk blends, denim, technical mesh, and ready-made apparel — this is a snapshot
-            of what Mantrix sources and supplies from Dubai.
-          </p>
-        </div>
-        <div class="bento">
-          <div class="bento-cell bento-3x2 reveal reveal-delay-1">
-            <img src="images/cotton-blue.jpg" alt="Blue cotton fabric texture close up" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Cotton Weaves</strong>
-              <span>Shirting · Uniforms · Bedding</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-1x1 reveal reveal-delay-2">
-            <img src="images/silk-pink.jpg" alt="Pink silk cotton blend" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Silk Blends</strong>
-              <span>Formal · Linings</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-1x1 reveal reveal-delay-3">
-            <img src="images/denim-blue.jpg" alt="Indigo denim macro" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Denim</strong>
-              <span>Jeans · Workwear</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-1x1 reveal reveal-delay-2">
-            <img src="images/linen-natural.jpg" alt="Natural linen texture" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Linen</strong>
-              <span>Resort · Summer</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-1x1 reveal reveal-delay-3">
-            <img src="images/mesh-fabric.jpg" alt="Mesh fabric performance" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Technical Mesh</strong>
-              <span>Sport · Activewear</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-2x1 reveal reveal-delay-1">
-            <img src="images/garment-factory.jpg" alt="Garment factory floor" loading="lazy" width="1024" height="768">
-            <div class="bento-caption">
-              <strong>Ready-Made Garments</strong>
-              <span>Production-grade supply</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-2x1 reveal reveal-delay-2">
-            <img src="images/silk-panels.jpg" alt="Decorative silk panels" loading="lazy" width="1280" height="960">
-            <div class="bento-caption">
-              <strong>Jacquard &amp; Brocade</strong>
-              <span>Abayas · Décor</span>
-            </div>
-          </div>
-          <div class="bento-cell bento-2x1 reveal reveal-delay-3">
-            <img src="images/fabric-red.jpg" alt="Solid red fabric" loading="lazy" width="1280" height="853">
-            <div class="bento-caption">
-              <strong>Solid Dyed</strong>
-              <span>Brand &amp; Uniform</span>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:2.4rem;">
-          <a class="button" href="textiles.html">View Full Material Library</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell">
-        <div class="stat-strip reveal">
-          <div>
-            <strong>20+</strong>
-            <span>Years Trading</span>
-          </div>
-          <div>
-            <strong>40+</strong>
-            <span>Fabric Categories</span>
-          </div>
-          <div>
-            <strong>15+</strong>
-            <span>Source Countries</span>
-          </div>
-          <div>
-            <strong>1</strong>
-            <span>Dubai Hub</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="shell showcase-layout">
-        <div class="section-heading section-heading-light reveal">
-          <p class="eyebrow">Visual Story</p>
-          <h2>Dubai presence and textile identity in one clearer brand experience.</h2>
-        </div>
-        <div class="grid gallery-grid">
-          <figure class="gallery-card reveal reveal-delay-1">
-            <img src="images/dubai-aerial.jpg" alt="Aerial view of Dubai" width="4608" height="3456" loading="lazy">
-            <figcaption>
-              <strong>Dubai Base</strong>
-              <span>Operating from one of the region's leading trade hubs.</span>
-            </figcaption>
-          </figure>
-          <figure class="gallery-card reveal reveal-delay-2">
-            <img src="images/cloth-texture.jpg" alt="Textile fabric texture" width="1280" height="960" loading="lazy">
-            <figcaption>
-              <strong>Textile Focus</strong>
-              <span>Built around fabric-oriented sourcing and supply requirements.</span>
-            </figcaption>
-          </figure>
-          <figure class="gallery-card reveal reveal-delay-3">
-            <img src="images/fabric-merchant.jpg" alt="Historic textile merchant scene" width="1024" height="1021" loading="lazy">
-            <figcaption>
-              <strong>Trading Mindset</strong>
-              <span>A business model centered on trade relationships and supply confidence.</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell split-layout">
+    <section class="section introduction" id="introduction">
+      <div class="shell intro-grid">
         <div class="reveal">
-          <p class="eyebrow">What We Do</p>
-          <h2>Core business support for textile trading relationships.</h2>
-          <p class="lead">
-            Mantrix General Trading LLC focuses on business-to-business textile trade support with an emphasis on sourcing,
-            supply coordination, and practical commercial communication.
-          </p>
+          <p class="eyebrow section-label">01 / The Mantrix approach</p>
+          <div class="heritage-number"><span data-count="20">20</span><span>+</span></div>
+          <p class="heritage-label">Years of textile<br>trading experience</p>
         </div>
-        <div class="grid cards-2">
-          <article class="info-card reveal reveal-delay-1">
-            <h3>Textile Sourcing</h3>
-            <p>Connecting supply needs with suitable textile options for commercial trade activity.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-2">
-            <h3>Wholesale Support</h3>
-            <p>Serving trade and distribution requirements with a straightforward, business-focused process.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-3">
-            <h3>Supply Coordination</h3>
-            <p>Helping maintain clarity, communication, and consistency throughout the trading workflow.</p>
-          </article>
-          <article class="info-card reveal reveal-delay-4">
-            <h3>Regional Reach</h3>
-            <p>Using Dubai's commercial position to support regional and international trading opportunities.</p>
-          </article>
+        <div class="intro-copy reveal reveal-delay-1">
+          <h2>Good business starts <br>with <em>the right connections.</em></h2>
+          <p>From the feel of a fabric to the detail of an order, every decision matters. We help businesses source textiles and finished garments with clear specifications, practical coordination, and a direct line to our team in Dubai.</p>
+          <a class="text-link" href="about.html">Meet your trading partner <span aria-hidden="true">&#8599;</span></a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell cta-panel reveal">
-        <div>
-          <p class="eyebrow">Next Step</p>
-          <h2>Browse the company story, textile focus, and direct contact details.</h2>
+    <section class="section collection-section" id="collection">
+      <div class="shell">
+        <div class="section-heading heading-row reveal">
+          <div>
+            <p class="eyebrow">02 / The material edit</p>
+            <h2>A world of texture.<br><em>A fabric for every vision.</em></h2>
+          </div>
+          <a class="text-link" href="textiles.html#fabrics">Explore the fabric library <span aria-hidden="true">&#8599;</span></a>
         </div>
-        <div class="cta-actions">
-          <a class="button" href="about.html">About Us</a>
-          <a class="button button-ghost" href="textiles.html">Textiles</a>
-          <a class="button button-outline" href="contact.html">Contact Us</a>
+        <div class="material-grid">
+          <a class="material-card reveal" href="textiles.html#cotton">
+            <div class="material-image" data-depth>
+              <img src="images/cotton-blue.webp" alt="Close-up of a fine blue cotton weave" width="900" height="900" loading="lazy">
+              <span class="material-index">01 / Natural fibres</span>
+              <span class="round-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <div class="material-caption"><h3>Cotton</h3><p>Everyday versatility. Considered quality.</p></div>
+          </a>
+          <a class="material-card reveal reveal-delay-1" href="textiles.html#linen">
+            <div class="material-image" data-depth>
+              <img src="images/linen-natural.webp" alt="The natural open weave of linen fabric" width="900" height="900" loading="lazy">
+              <span class="material-index">02 / Naturally refined</span>
+              <span class="round-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <div class="material-caption"><h3>Linen</h3><p>Breathable texture. Effortless character.</p></div>
+          </a>
+          <a class="material-card reveal reveal-delay-2" href="textiles.html#silk">
+            <div class="material-image" data-depth>
+              <img src="images/silk-pink.webp" alt="Close-up of a delicate pink silk-blend fabric" width="900" height="900" loading="lazy">
+              <span class="material-index">03 / A softer statement</span>
+              <span class="round-arrow" aria-hidden="true">&#8599;</span>
+            </div>
+            <div class="material-caption"><h3>Silk &amp; blends</h3><p>Delicate detail. Distinctive finish.</p></div>
+          </a>
         </div>
+        <div class="collection-bottom reveal">
+          <p>Denim, technical fabrics, uniforms, home textiles &amp; more.</p>
+          <a class="text-link" href="textiles.html#garments">Discover ready-made garments <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">From thread to possibility</span>
+        <span class="marquee-item"><em>Sourced with purpose</em></span>
+        <span class="marquee-item">Connected through Dubai</span>
+        <span class="marquee-item"><em>Built on relationships</em></span>
+      </div>
+    </div>
+
+    <section class="section process-section">
+      <div class="shell process-grid">
+        <figure class="process-visual reveal">
+          <div class="process-image" data-depth>
+            <img src="images/cloth-texture.webp" alt="Close-up of an intricate blue and ivory woven textile" width="1200" height="900" loading="lazy">
+          </div>
+          <figcaption><span>The detail makes the difference.</span><span>Textiles / Dubai</span></figcaption>
+          <div class="process-stamp" aria-hidden="true"><span>Since</span><strong>2003</strong><span>Dubai, UAE</span></div>
+        </figure>
+        <div class="process-copy reveal reveal-delay-1">
+          <p class="eyebrow">03 / From enquiry to supply</p>
+          <h2>Your vision.<br><em>Our coordination.</em></h2>
+          <p class="lead">A clear, personal approach to sourcing. From your first brief to the details of delivery.</p>
+          <div class="process-steps">
+            <details class="process-step" name="sourcing" open>
+              <summary><span class="step-number">01</span><h3>Tell us what you need</h3><span class="step-icon" aria-hidden="true"></span></summary>
+              <div class="step-content"><p>Share the fabric type, composition, weight, colour, quantity, and destination. Reference images and swatches help us understand your requirement.</p></div>
+            </details>
+            <details class="process-step" name="sourcing">
+              <summary><span class="step-number">02</span><h3>Find the right fit</h3><span class="step-icon" aria-hidden="true"></span></summary>
+              <div class="step-content"><p>We discuss suitable sourcing options, coordinate samples where available, and clarify specifications, pricing, and lead times before an order is confirmed.</p></div>
+            </details>
+            <details class="process-step" name="sourcing">
+              <summary><span class="step-number">03</span><h3>Move forward with clarity</h3><span class="step-icon" aria-hidden="true"></span></summary>
+              <div class="step-content"><p>Agree the commercial terms in writing. Our Dubai team coordinates supply updates, order documents, and logistics discussions throughout the process.</p></div>
+            </details>
+          </div>
+          <a class="text-link" href="textiles.html#buyer-details">What to include in your brief <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partner-section">
+      <div class="shell partner-grid">
+        <div class="reveal">
+          <p class="eyebrow">04 / Confidence in every conversation</p>
+          <h2>Rooted in Dubai.<br><em>Ready for your business.</em></h2>
+        </div>
+        <div class="partner-details reveal reveal-delay-1">
+          <p>Work directly with an established UAE trading company. Our company details are available from the start, and our team is here to discuss your commercial requirements.</p>
+          <dl class="credential-list">
+            <div><dt>Trade licence</dt><dd>549834</dd></div>
+            <div><dt>UAE tax registration</dt><dd>100232707800003</dd></div>
+            <div><dt>Our office</dt><dd>106 Al Dana Centre, Dubai</dd></div>
+          </dl>
+          <a class="text-link" href="contact.html">Contact our Dubai team <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section">
+      <div class="thread-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="shell closing-content reveal">
+        <p class="eyebrow">Every great partnership begins with a conversation</p>
+        <h2>Let's create<br><em>what comes next.</em></h2>
+        <a class="button button-light" href="contact.html">Discuss Your Requirements</a>
+        <a class="closing-email" href="mailto:info@mantrix.ae">info@mantrix.ae</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-grid">
-      <div>
-        <p class="footer-title">Mantrix General Trading LLC</p>
-        <p class="footer-copy">Textile trading company based in Dubai, United Arab Emirates.</p>
-      </div>
-      <div>
-        <p class="footer-title">Quick Links</p>
-        <a class="footer-link" href="about.html">About Us</a>
-        <a class="footer-link" href="textiles.html">Textiles</a>
-        <a class="footer-link" href="contact.html">Contact Us</a>
-      </div>
-      <div>
-        <p class="footer-title">Contact</p>
-        <a class="footer-link" href="tel:+97148869750">+971 4 886 9750</a>
-        <a class="footer-link whatsapp-link" href="https://wa.me/97148869750">WhatsApp Us</a>
-        <a class="footer-link" href="mailto:info@mantrix.ae">info@mantrix.ae</a>
-        <p class="footer-copy">106 Al Dana Centre, Dubai</p>
-      </div>
+      <div><p class="footer-title">Textiles. Trade. Connection.</p><p class="footer-copy">Dubai, United Arab Emirates.<br>Operating since 2003.</p></div>
+      <div><p class="footer-title">Explore</p><a class="footer-link" href="about.html">Our Company</a><a class="footer-link" href="textiles.html">Textiles</a><a class="footer-link" href="contact.html">Contact</a></div>
+      <div><p class="footer-title">Get in touch</p><a class="footer-link" href="mailto:info@mantrix.ae">info@mantrix.ae</a><a class="footer-link" href="tel:+97148869750">+971 4 886 9750</a><a class="footer-link" href="https://wa.me/97148869750">WhatsApp Us</a><p class="footer-copy">106 Al Dana Centre, Dubai</p></div>
     </div>
-    <div class="shell footer-meta">
-      <p>Operating since 2003 | UAE VAT Registered | TRN 100232707800003 | License No. 549834</p>
-      <p>
-        Dubai skyline photo:
-        <a href="https://commons.wikimedia.org/wiki/File:Dubai_Skyline,_Dubai.jpg">Dubai Skyline, Dubai</a>
-        by Essam2K6,
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
-      </p>
-      <p>
-        Photo credit:
-        <a href="https://commons.wikimedia.org/wiki/File:Colourful_fabric.jpg">Colourful fabric</a>
-        by MissMessie,
-        <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.
-        Additional Dubai and textile images are from Wikimedia Commons public domain or CC0 collections.
-      </p>
-    </div>
+    <div class="shell footer-meta"><p>UAE VAT Registered <span aria-hidden="true">/</span> TRN 100232707800003 <span aria-hidden="true">/</span> Licence No. 549834</p><p>Fabric photographs from Wikimedia Commons. Hero fabric composition is illustrative.</p></div>
   </footer>
+  <button class="motion-toggle" type="button" aria-pressed="false" hidden><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
 </body>
 </html>
